@@ -12,7 +12,7 @@ app.use('/hello', (req, res, next)=>{
 app.use('/bye', (req, res, next) => {
     res.send('Bye Bye!');
 });
-console.log('sdfsssssdfsdfsdfasdsadsdf');
+console.log('sddfsssssdfsdfsdfasdsadsdf');
 
 app.listen(8001, (err)=>{
     if(err) console.log(err);

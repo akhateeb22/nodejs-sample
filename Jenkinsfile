@@ -32,7 +32,10 @@ pipeline {
         stage('Push') {
 
 			steps {
-				sh 'docker push boda175/nodejs:latest'
+				sh '''
+                    docker push boda175/nodejs:latest
+                    docker image rm boda175/nodejs:latest
+                '''
 			}
 		}
     }

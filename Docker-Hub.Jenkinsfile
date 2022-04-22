@@ -10,12 +10,17 @@ pipeline {
         }
         stage("Create container") {
             steps {
-                sh '''
-                    docker container stop nodejs
-                    docker container rm nodejs
-                    docker container run --name nodejs -p 8001:8001 boda175/nodejs
-                '''
-            }
+                script {
+                    def containerExists = sh(script: "docker container ls -a -f name=nodejs", returnStdout: true) == 0
+                    if (containerExists) {
+                        sh '''
+                            docker container stop nodejs
+                            docker container rm nodejs
+                        '''
+                    }
+                    sh 'docker container run -d --name nodejs -p 8001:8001 boda175/nodejs'
+                }
         }
-    }
+}
+}
 }

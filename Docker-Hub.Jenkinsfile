@@ -14,6 +14,7 @@ pipeline {
                     def containerExists = sh(script: "docker container ls -a -f name=nodejs", returnStdout: true) == 0
                     if (containerExists) {
                         sh '''
+                            echo "qwewqeqweqwqweqwew"
                             docker container stop nodejs
                             docker container rm nodejs
                         '''

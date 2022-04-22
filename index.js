@@ -9,6 +9,9 @@ app.use('/hello', (req, res, next)=>{
     res.send('Hello there!');
 })
 
+app.use('/bye', (req, res, next) => {
+    res.send('Bye Bye!');
+})
 app.listen(8001, (err)=>{
     if(err) console.log(err);
     else{
